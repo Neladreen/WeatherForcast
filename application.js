@@ -74,7 +74,7 @@ async function getWeather(){
     placeObject.city = document.getElementById("city").value
     const numberOfDay = document.getElementById("day__select").value
     await API_lat_lng(placeObject.city)
-    const placeHTML = `<h2>${placeObject.place}</h2>`
+    resultCity.textContent = `${placeObject.place}`
     const today = new Date()   
 
     let weatherHTML = ``;
@@ -108,7 +108,6 @@ async function getWeather(){
     }
      
     // Affichage:
-    resultCity.innerHTML = placeHTML
     resultWeather.innerHTML = weatherHTML 
     }
 
