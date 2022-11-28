@@ -27,7 +27,7 @@ function API_lat_lng(cityName){
             placeObject.coordonnees.long = data.results[0].geometry.lng;
             placeObject.place = data.results[0].formatted
          })
-        .catch(error => console.log(error))
+        .catch(error => alert("I don't know this city..."))
 }
 
 
