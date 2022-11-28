@@ -1,0 +1,37 @@
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 5px;
+}
+
+body{
+    --day-color : black;
+    --day-background : linear-gradient(90deg, rgb(68, 144, 190),rgb(251, 254, 241));
+    --day-result-background :  rgba(0, 0, 0, 0.161);
+
+    --night-color : white;
+    --night-background : linear-gradient(90deg, rgb(84, 21, 156),rgb(132, 51, 77));
+    --night-result-background: rgba(255, 255, 255, 0.161);
+}
+
+body{
+    text-align: center;
+    background-image: var(--day-background);
+    color: var(--day-color);
+}
+
+#result {
+    font-family: Dosis;
+    display: none;
+    background-color: var(--day-result-background);
+    border-radius: 10px;    
+    margin: 10px ;
+}
+
+#resultWeather {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}

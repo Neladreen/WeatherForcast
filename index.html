@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather</title>
+</head>
+<body>
+
+    <main>
+        <h1>Weather</h1>
+        <section class="form">
+            
+            <form action="">
+                <h2>Where are you ?</h2>
+                <label for="city"> Enter your city : 
+                    <input type="text" name="city" id="city"/></label>
+                
+                <select name="day" id="day__select">
+                    <option value="1">1 day</option>
+                    <option value="2">2 days</option>
+                    <option value="3">3 days</option>
+                    <option value="4">4 days</option>
+                    <option value="5">5 days</option>
+                    <option value="6">6 days</option>
+                    <option value="7">7 days</option>
+                </select>
+
+               
+               <button type="submit" id="search">Submit</button>
+            </form>
+        </section>
+
+        <section id="result">
+            <div id="resultCity"></div>
+            <div id="resultWeather"></div>
+        </section>
+
+    </main>
+    
+<script src="application.js"></script>
+</body>
+
+</html>
