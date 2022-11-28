@@ -47,7 +47,7 @@ function API_meteo(latitude,longitude,dayNumber){
                 weatherDay[day] = {}
                 weatherDay[day].weather = data.daily[day].weather[0].main
                 weatherDay[day].icon = data.daily[day].weather[0].icon.substr(0, 2)  + placeObject.time[0]
-                console.log (weatherDay[day].icon)
+                weatherDay[day].description = data.daily[day].weather[0].description
                 weatherDay[day].temperature = parseInt(data.daily[day].temp.day)
             }
         })
@@ -99,6 +99,7 @@ async function getWeather(){
         // Inserer les infos:
         weatherHTML+=`<div>
             <h3>${week[dayOfWeek]}</h3>
+            <p style="text-transform: capitalize">${weatherDay[day].description}</p>
             <img src="http://openweathermap.org/img/wn/${weatherDay[day].icon}@2x.png" alt="image of the ${weatherDay[day].weather}">    
             <p>${weatherDay[day].temperature}°C</p>
         </div>`      

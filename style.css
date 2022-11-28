@@ -7,6 +7,8 @@
 }
 
 body{
+    font-family: Verdana, sans-serif;
+
     --day-color : black;
     --day-background : linear-gradient(90deg, rgb(68, 144, 190),rgb(251, 254, 241));
     --day-result-background :  rgba(0, 0, 0, 0.161);
@@ -30,7 +32,7 @@ body{
 }
 
 #result {
-    font-family: Dosis;
+    font-family: Dosis, sans-serif;
     display: none;
     background-color: var(--day-result-background);
     border-radius: 10px;    
