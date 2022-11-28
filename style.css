@@ -14,7 +14,7 @@ body{
     --day-result-background :  rgba(0, 0, 0, 0.161);
 
     --night-color : white;
-    --night-background : linear-gradient(90deg, rgb(84, 21, 156),rgb(132, 51, 77));
+    --night-background : linear-gradient(90deg, rgb(62, 25, 113),rgb(72, 105, 206));
     --night-result-background: rgba(255, 255, 255, 0.161);
 }
 
@@ -43,4 +43,9 @@ body{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+}
+
+.darkmode {
+    background-color: var(--night-result-background);
+    color: var(--night-color);
 }

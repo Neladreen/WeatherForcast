@@ -80,10 +80,12 @@ async function getWeather(){
     let weatherHTML = ``;
     
     result.style.display = "inline-block"
+    
     // Changement de style en fonction de l'heure
     await API_meteo(placeObject.coordonnees.lat,placeObject.coordonnees.long, numberOfDay)
     document.body.style.backgroundImage = `var(--${placeObject.time}-background)`
     document.body.style.color = `var(--${placeObject.time}-color)`
+    
     result.style.backgroundColor = `var(--${placeObject.time}-result-background)`
     city.style.color= `var(--${placeObject.time})-color`
     search.style.color= `var(--${placeObject.time})-color`
