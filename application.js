@@ -37,19 +37,19 @@ function API_meteo(latitude,longitude,dayNumber){
     return fetch(OWM)
         .then(result => result.json())
         .then(data => {
-            for(day=0; day < dayNumber ; day ++){
-                weatherDay[day] = {}
-                weatherDay[day].weather = data.daily[day].weather[0].main
-                weatherDay[day].icon = data.daily[day].weather[0].icon
-                weatherDay[day].temperature = parseInt(data.daily[day].temp.day)
-            }
             if (data.current.weather[0].icon[2] === 'n'){
                 placeObject.time = 'night'
             }
             else{
                 placeObject.time = "day"
             }
-             
+            for(day=0; day < dayNumber ; day ++){
+                weatherDay[day] = {}
+                weatherDay[day].weather = data.daily[day].weather[0].main
+                weatherDay[day].icon = data.daily[day].weather[0].icon.substr(0, 2)  + placeObject.time[0]
+                console.log (weatherDay[day].icon)
+                weatherDay[day].temperature = parseInt(data.daily[day].temp.day)
+            }
         })
         .catch(error => console.log(error))
 }
@@ -75,15 +75,22 @@ async function getWeather(){
     const numberOfDay = document.getElementById("day__select").value
     await API_lat_lng(placeObject.city)
     const placeHTML = `<h2>${placeObject.place}</h2>`
- 
-    result.style.display = "inline-block"
+    const today = new Date()   
 
     let weatherHTML = ``;
+    
+    result.style.display = "inline-block"
+    // Changement de style en fonction de l'heure
     await API_meteo(placeObject.coordonnees.lat,placeObject.coordonnees.long, numberOfDay)
     document.body.style.backgroundImage = `var(--${placeObject.time}-background)`
     document.body.style.color = `var(--${placeObject.time}-color)`
     result.style.backgroundColor = `var(--${placeObject.time}-result-background)`
-    const today = new Date()      
+    city.style.color= `var(--${placeObject.time})-color`
+    search.style.color= `var(--${placeObject.time})-color`
+    day__select.style.color= `var(--${placeObject.time})-color`
+    city.style.backgroundColor= `var(--${placeObject.time}-result-background)`
+    search.style.backgroundColor= `var(--${placeObject.time}-result-background)`
+    day__select.style.backgroundColor= `var(--${placeObject.time}-result-background)`
 
     // Pour chaque jour:
         for(let day=0; day<numberOfDay; day++){
